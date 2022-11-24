@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  grafana:
+    image: grafana/grafana-oss:latest
+    container_name: grafana
+    user: root
+    environment:
+      - GF_INSTALL_PLUGINS=grafana-clock-panel
+    volumes:
+      - ./plugins:/etc/grafana/provisioning/plugins
+    ports:
+      - "3000:3000"
